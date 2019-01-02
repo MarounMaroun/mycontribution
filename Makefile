@@ -10,3 +10,7 @@ install:
 uninstall:
 	@sudo rm -f $(INSTALL_PATH)
 	@echo "Done uninstalling!"
+
+.PHONY: test
+test:
+	bash tests/test.sh
