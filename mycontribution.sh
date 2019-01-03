@@ -8,7 +8,12 @@ fi
 
 declare -a months=("  J a n" "  F e b" "   M a r" "   A p r" "    M a y" "   J u n" "   J u l" "     A u g" "   S e p" "     O c t" "   N o v" "    D e c")
 
-declare -a graph=($(curl -s https://github.com/"$1" | grep '<rect class="day"' | grep -oP '(?<=fill=").*?(?=" )'))
+declare -a graph=($(curl -s https://github.com/"$username" | grep '<rect class="day"' | grep -oP '(?<=fill=").*?(?=" )'))
+
+if [[ -z "$graph" ]]; then
+    echo "User $username doesn't exist"
+    exit 1
+fi
 
 # print months
 echo
