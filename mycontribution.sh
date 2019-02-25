@@ -7,9 +7,9 @@ if [[ -z $username ]]; then
     exit 1
 fi
 
-declare -a months=("  J a n" "  F e b" "   M a r" "   A p r" "    M a y" "   J u n" "   J u l" "     A u g" "   S e p" "     O c t" "   N o v" "    D e c")
+declare -a months=("  M a r" "  A p r" "   M a y" "   J u n" "    J u l" "   A u g" "   S e p" "     O c t" "   N o v" "     D e c" "   J a n" "    F e b")
 
-declare -a graph=($(curl -s https://github.com/"$username" | grep '<rect class="day"' | grep -oP '(?<=fill=").*?(?=" )'))
+declare -a graph=($(curl -s https://github.com/"$username" | ggrep '<rect class="day"' | ggrep -oP '(?<=fill=").*?(?=" )'))
 
 if [[ -z "$graph" ]]; then
     echo "User $username doesn't exist"
