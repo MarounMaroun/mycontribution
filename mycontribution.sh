@@ -7,7 +7,7 @@ if [[ -z $username ]]; then
     exit 1
 fi
 
-declare -a months=("  J u l" "  A u g" "   S e p" "   O c t" "    N o v" "   D e c" "   J a n" "     F e b" "   M a r" "     A p r" "   M a y" "    J u n")
+declare -a months=("  O c t" "  N o v" "   D e c" "   J a n" "    F e b" "   M a r" "   A p r" "     M a y" "   J u n" "     J u l" "   A u g" "    S e p")
 
 declare -a graph=($(curl -s https://github.com/"$username" | ggrep '<rect class="day"' | ggrep -oP '(?<=fill=").*?(?=" )'))
 
