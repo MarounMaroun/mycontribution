@@ -1,4 +1,4 @@
-# mycontribution [![Build Status](https://api.travis-ci.org/MarounMaroun/mycontribution.svg?branch=master)](https://travis-ci.org/MarounMaroun/mycontribution)
+# mycontribution ![](https://github.com/marounmaroun/mycontribution/workflows/Test%20HTML%20DOM/badge.svg)
 
 Be proud of your GitHub contributions without leaving your shell!
 

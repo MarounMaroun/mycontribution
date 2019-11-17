@@ -1,8 +1,0 @@
-language: bash
-
-script:
-  - make test
-
-branches:
-  only:
-    - master
