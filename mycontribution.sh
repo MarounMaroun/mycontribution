@@ -7,7 +7,9 @@ if [[ -z $username ]]; then
     exit 1
 fi
 
-declare -a months=("  F e b" "  M a r" "   A p r" "   M a y" "    J u n" "   J u l" "   A u g" "     S e p" "   O c t" "     N o v" "   D e c" "    J a n")
+declare -a months=("   J a n" "  F e b" "M a r" "  A p r" "   M a y" "  J u n" "   J u l" "     A u g" "   S e p" "     O c t" "  N o v" "    D e c")
+currentMonth=`date +%-m`-1
+months=("${months[@]:$currentMonth}" "${months[@]::$currentMonth}")
 
 declare -a graph=($(curl -s https://github.com/"$username" | ggrep '<rect class="day"' | ggrep -oP '(?<=fill=").*?(?=" )'))
 
@@ -22,6 +24,9 @@ for month in "${months[@]}"
 do
     printf "%s" "$month"
 done
+
+printf "   "
+printf " %s" ${months[0]}
 
 # print contribution graph
 echo
