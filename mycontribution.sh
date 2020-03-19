@@ -11,7 +11,7 @@ declare -a months=("   J a n" "  F e b" "M a r" "  A p r" "   M a y" "  J u n" "
 currentMonth=`date +%-m`-1
 months=("${months[@]:$currentMonth}" "${months[@]::$currentMonth}")
 
-declare -a graph=($(curl -s https://github.com/"$username" | ggrep '<rect class="day"' | ggrep -oP '(?<=fill=").*?(?=" )'))
+declare -a graph=($(curl -s https://github.com/"$username" | grep '<rect class="day"' | grep -oP '(?<=fill=").*?(?=" )'))
 
 if [[ -z "$graph" ]]; then
     echo "User $username doesn't exist"
